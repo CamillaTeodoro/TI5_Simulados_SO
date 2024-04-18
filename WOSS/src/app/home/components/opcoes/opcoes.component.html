@@ -1,57 +1,69 @@
 <h2 class="title">Algoritimo de escalonamento</h2>
 
 <div class="card-container">
-  <mat-card *ngFor="let i of [1, 2, 3]">
+  <mat-card
+    *ngFor="let card of cards; let i = index"
+    [class.selected]="selectedCardIndex === i"
+    (click)="selectCard(i)"
+  >
     <img
       class="politica-image"
       mat-card-image
-      src="assets/imagem_mock.png"
+      [src]="card.image"
       alt="Imagem"
     />
     <mat-card-header>
-      <mat-card-title>Nome {{ i }}</mat-card-title>
-      <button mat-icon-button (click)="openModal()">
+      <mat-card-title>{{ card.title }}</mat-card-title>
+      <button mat-icon-button (click)="openModal($event, i)">
         <mat-icon>add</mat-icon>
       </button>
     </mat-card-header>
     <mat-card-content>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <p>{{ card.content }}</p>
     </mat-card-content>
   </mat-card>
 </div>
 
 <div class="slider-container">
-  <p class="parametros">Quantum</p>
-  <mat-slider
-    min="0"
-    max="100000"
-    step="1000"
-    showTickMarks
-    discrete
-    [displayWith]="formatLabel"
-  >
-    <input matSliderThumb />
-  </mat-slider>
-  <p class="parametros">Tempo de I/O</p>
-  <mat-slider
-    min="0"
-    max="100000"
-    step="1000"
-    showTickMarks
-    discrete
-    [displayWith]="formatLabel"
-  >
-    <input matSliderThumb />
-  </mat-slider>
-  <p class="parametros">Overhead</p>
-  <mat-slider
-    min="0"
-    max="100000"
-    step="1000"
-    showTickMarks
-    discrete
-    [displayWith]="formatLabel"
-  >
-    <input matSliderThumb />
-  </mat-slider>
+  <div class="div_slider">
+    <p class="parametros">Tempo de I/O</p>
+    <mat-slider
+      min="0"
+      max="100000"
+      step="1000"
+      showTickMarks
+      discrete
+      [displayWith]="formatLabel"
+    >
+      <input matSliderThumb />
+    </mat-slider>
+    <p class="parametros">Overhead</p>
+    <mat-slider
+      min="0"
+      max="100000"
+      step="1000"
+      showTickMarks
+      discrete
+      [displayWith]="formatLabel"
+    >
+      <input matSliderThumb />
+    </mat-slider>
+
+    <p class="parametros">Quantum</p>
+    <mat-slider
+      min="0"
+      max="100000"
+      step="1000"
+      showTickMarks
+      discrete
+      [displayWith]="formatLabel"
+    >
+      <input matSliderThumb />
+    </mat-slider>
+  </div>
+  <div class="div_button">
+    <button class="select_button" mat-raised-button (click)="saveSelection()">
+      Selecionar
+    </button>
+  </div>
 </div>

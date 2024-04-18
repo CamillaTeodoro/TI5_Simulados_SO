@@ -10,7 +10,26 @@ import { ModalComponent } from '../modal/modal.component';
 export class OpcoesComponent {
   constructor(public dialog: MatDialog) {}
 
-  openModal() {
+  selectedCardIndex: number | null = null;
+  quantumValue: number = 0;
+  ioTimeValue: number = 0;
+  overheadValue: number = 0;
+
+  cards = [
+    { image: 'assets/imagem_mock1.png', title: 'Round Robin', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'assets/imagem_mock2.png', title: 'FIFO', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'assets/imagem_mock3.png', title: 'Prioridade', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'assets/imagem_mock4.png', title: 'SJF', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+  ];
+
+  selectCard(index: number) {
+    this.selectedCardIndex = index;
+    console.log("selecionado: " + index)
+  }
+
+  openModal(event: MouseEvent, index: number) {
+    event.stopPropagation(); 
+    this.selectCard(index);
     this.dialog.open(ModalComponent);
   }
 
@@ -20,5 +39,18 @@ export class OpcoesComponent {
     }
 
     return `${value}`;
+  }
+
+  saveSelection() {
+    if (this.selectedCardIndex !== null) {
+      const selectedCard = this.cards[this.selectedCardIndex];
+      console.log('Card selecionado:', selectedCard.title);
+      console.log('Valor do Quantum:', this.quantumValue);
+      console.log('Tempo de I/O:', this.ioTimeValue);
+      console.log('Overhead:', this.overheadValue);
+
+    } else {
+      console.log('Nenhum card foi selecionado');
+    }
   }
 }
