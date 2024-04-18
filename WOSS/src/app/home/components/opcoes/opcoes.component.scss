@@ -2,13 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 28px
+    gap: 28px;
+    flex-wrap: wrap;
   }
   
   .title{
     margin-top: 25px;
+    margin-bottom: 50px;
+    color: black ;
+    font-size: 24px;
+    font-weight: 600;
 
   }
+
   .slider-container {
     margin-top: 100px;
     margin-left: 15px;
@@ -35,10 +41,6 @@
 
   }
 
-  .mat-card.selected {
-    border: 2px solid #3f51b5; 
-  }
-
   .div_button{
     display: flex;
     align-items: center;
@@ -54,3 +56,13 @@
     font-size: 18px;
   }
 
+  .mat-mdc-card.mdc-card.ng-star-inserted.selected {
+    border: 3px solid  #FEB626 ; 
+
+  }
+  
+  .mat-mdc-card.mdc-card.ng-star-inserted.disabled {
+    opacity: 0.5; 
+  }
+
+ 

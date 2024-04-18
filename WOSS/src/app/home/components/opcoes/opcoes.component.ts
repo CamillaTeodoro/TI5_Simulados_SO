@@ -16,14 +16,16 @@ export class OpcoesComponent {
   overheadValue: number = 0;
 
   cards = [
-    { image: 'assets/imagem_mock1.png', title: 'Round Robin', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'assets/imagem_mock2.png', title: 'FIFO', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'assets/imagem_mock3.png', title: 'Prioridade', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'assets/imagem_mock4.png', title: 'SJF', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+    { image: 'assets/imagem_mock.png', title: 'Round Robin', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'assets/imagem_mock.png', title: 'FIFO', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'assets/imagem_mock.png', title: 'Prioridade', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+    { image: 'assets/imagem_mock.png', title: 'SJF', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
   ];
 
   selectCard(index: number) {
-    this.selectedCardIndex = index;
+    if (this.selectedCardIndex === null || this.selectedCardIndex === index) {
+      this.selectedCardIndex = this.selectedCardIndex === index ? null : index;
+    }
     console.log("selecionado: " + index)
   }
 
@@ -35,9 +37,15 @@ export class OpcoesComponent {
 
   formatLabel(value: number): string {
     if (value >= 1000) {
-      return Math.round(value / 1000) + 's';
+      return (value / 100000) + 's';
     }
+    return `${value}`;
+  }
 
+  formatLabelQuantum(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 5000) + 's';
+    }
     return `${value}`;
   }
 
