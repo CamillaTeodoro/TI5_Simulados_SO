@@ -16,10 +16,10 @@ export class OpcoesComponent {
   overheadValue: number = 0;
 
   cards = [
-    { image: 'assets/imagem_mock.png', title: 'Round Robin', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'assets/imagem_mock.png', title: 'FIFO', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'assets/imagem_mock.png', title: 'Prioridade', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { image: 'assets/imagem_mock.png', title: 'SJF', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' }
+    { image: 'assets/imagem_mock.png', title: 'Round Robin', content: 'Cada processo recebe um pequeno intervalo de tempo (quantum) para ser executado na CPU.' },
+    { image: 'assets/imagem_mock.png', title: 'FIFO', content: 'Os processos são executados na ordem em que foram colocados na fila.' },
+    { image: 'assets/imagem_mock.png', title: 'Prioridade', content: 'A cada processo é atribuído uma prioridade. Processos com prioridades mais altas são executados antes dos processos com prioridades mais baixas.' },
+    { image: 'assets/imagem_mock.png', title: 'SJF', content: 'O processo com o menor tempo de execução é executado primeiro.' }
   ];
 
   modalContent: { [key: string]: string } = {
