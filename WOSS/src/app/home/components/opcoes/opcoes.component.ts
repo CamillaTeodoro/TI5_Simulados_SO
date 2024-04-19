@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 
@@ -11,9 +11,9 @@ export class OpcoesComponent {
   constructor(public dialog: MatDialog) {}
 
   selectedCardIndex: number | null = null;
-  quantumValue: number = 0;
-  ioTimeValue: number = 0;
-  overheadValue: number = 0;
+  @Input() quantumValue: number = 0;
+  @Input() ioTimeValue: number = 0.0;
+  @Input() overheadValue: number = 0.0;
 
   cards = [
     { image: 'assets/imagem_mock.png', title: 'Round Robin', content: 'Cada processo recebe um pequeno intervalo de tempo (quantum) para ser executado na CPU.' },
@@ -35,7 +35,7 @@ export class OpcoesComponent {
     }
   } 
 
-  openModal(event: MouseEvent, index: number) {
+   openModal(event: MouseEvent, index: number) {
     event.stopPropagation(); 
     this.selectCard(index);
     const dialogRef = this.dialog.open(ModalComponent, {

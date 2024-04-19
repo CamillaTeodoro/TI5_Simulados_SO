@@ -27,40 +27,45 @@
 
 <div class="slider-container">
   <div class="div_slider">
-    <p class="parametros">Tempo de I/O</p>
-    <mat-slider
-      min="0"
-      max="100000"
-      step="1000"
-      showTickMarks
-      discrete
-      [displayWith]="formatLabel"
-    >
-      <input matSliderThumb />
-    </mat-slider>
-    <p class="parametros">Overhead</p>
-    <mat-slider
-      min="0"
-      max="100000"
-      step="1000"
-      showTickMarks
-      discrete
-      [displayWith]="formatLabel"
-    >
-      <input matSliderThumb />
-    </mat-slider>
-
-    <p class="parametros">Quantum</p>
-    <mat-slider
-      min="0"
-      max="100000"
-      step="1000"
-      showTickMarks
-      discrete
-      [displayWith]="formatLabelQuantum"
-    >
-      <input matSliderThumb />
-    </mat-slider>
+    <div>
+      <p class="parametros">Tempo de I/O</p>
+      <mat-slider
+        min="0"
+        max="100000"
+        step="1000"
+        showTickMarks
+        discrete
+        [displayWith]="formatLabel"
+      >
+        <input matSliderThumb />
+      </mat-slider>
+    </div>
+    <div>
+      <p class="parametros">Overhead</p>
+      <mat-slider
+        min="0"
+        max="100000"
+        step="1000"
+        showTickMarks
+        discrete
+        [displayWith]="formatLabel"
+      >
+        <input matSliderThumb />
+      </mat-slider>
+    </div>
+    <div *ngIf="selectedCardIndex === 0">
+      <p class="parametros">Quantum</p>
+      <mat-slider
+        min="0"
+        max="100000"
+        step="1000"
+        showTickMarks
+        discrete
+        [displayWith]="formatLabelQuantum"
+      >
+        <input matSliderThumb />
+      </mat-slider>
+    </div>
   </div>
   <div class="div_button">
     <button class="select_button" mat-raised-button (click)="saveSelection()">
