@@ -17,6 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalComponent } from './home/components/modal/modal.component';
 import { MatIconModule } from "@angular/material/icon";
 import { FormsModule } from '@angular/forms';
+import { TableComponent } from './home/components/table/table.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { FormsModule } from '@angular/forms';
     SimulacaoComponent,
     SimulacaoTabsComponent,
     OpcoesComponent,
-    ModalComponent
+    ModalComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     MatSliderModule,
     MatDialogModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
